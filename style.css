@@ -14,6 +14,10 @@
   font-family: Assistant;
   src: url(./fonts/Assistant-VariableFont_wght.ttf);
 }
+@font-face {
+  font-family: Abhaya Libre;
+  src: url(./fonts/AbhayaLibre-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -22,10 +26,8 @@
 /* variables  */
 :root {
   --primary-blue: #37b4ef;
-  --white: red;
-  /* --white: #ffffff; */
-  --black:blue;
-  /* --black: #000000; */
+  --white: #ffffff;
+  --black: #000000;
 }
 
 /* common styles  */
@@ -240,18 +242,26 @@ header.logo img {
   display: flex;
   align-items: center;
   padding: 0px 15px;
-  gap: 10rem;
+  gap: 7rem;
 }
 
+.wrapper .logo {
+  position: relative;
+  height: 128px;
+  top: 14px;
+}
 .welcome {
   /* background: rgba(237, 237, 237, 0.62); */
-  background-image: url(./assets/blue-bg.png),url(./assets/transparent.png);
+  background-image: url(./assets/blue-bg.png), url(./assets/transparent.png);
   background-position: bottom 0px right calc(50% - 243px), right;
   background-repeat: no-repeat;
   min-height: 642px;
   padding-top: 80px;
   position: relative;
   /* background-size:, 30%; */
+}
+.welcome span{
+  color: var(--white);
 }
 .welcome .container {
   text-align: center;
@@ -310,6 +320,7 @@ main .section-head {
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  margin-bottom: 24px;
 }
 main .section-head::before,
 main .section-head::after {
@@ -413,6 +424,10 @@ main .section-head::after {
   position: relative;
   left: -40px;
 }
+.works span img{
+  position: relative;
+  z-index: -1;
+}
 .card button {
   margin-top: 23px;
 }
@@ -457,7 +472,7 @@ main .section-head::after {
 }
 .quote {
   margin-top: 43px;
-  height: 271px;
+  min-height: 271px;
   background: url(./assets/qoute.png);
   padding: 66px 0;
 }
@@ -599,6 +614,34 @@ main .section-head::after {
 }
 .content-upper button {
   margin-top: 23px;
+  margin-bottom: 35px;
+}
+.content-lower {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+.content-lower .card p:first-child {
+  font-family: Abhaya Libre;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 60px;
+  text-transform: capitalize;
+  color: #4db2df;
+}
+.content-lower .card p:last-child {
+  font-family: Jost;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  text-transform: capitalize;
+  color: #292929;
+}
+.content-lower .line {
+  width: 54px;
+  height: 0px;
+  border: 1px solid #2ea0b0;
+  transform: rotate(-180deg);
 }
 .news-letter {
   padding: 80px 0px;
@@ -836,7 +879,7 @@ footer .logo img {
   margin-top: 70px;
   margin-bottom: 30px;
 }
-.lower-footer{
+.lower-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -850,9 +893,11 @@ footer .logo img {
   mix-blend-mode: normal;
   opacity: 0.7;
 }
+
 /* media queries  */
-@media screen and (max-width:1200px) {
-  .wrapper,.news-letter .form-container{
+@media screen and (max-width: 1200px) {
+  .wrapper,
+  .news-letter .form-container {
     gap: 2rem;
   }
 }
@@ -867,35 +912,55 @@ footer .logo img {
   .wrapper {
     justify-content: space-between;
   }
+  .wrapper .logo {
+    position: static;
+  }
   .toggle-btn {
     display: inline-block;
     padding-top: 15px;
   }
-  .works .card{
+  .works .card {
     display: block;
   }
-  .works .card .card-text{
+  .works .card .card-text {
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-  .experiences .empty{
+  .experiences .empty {
     display: none;
   }
-  .experiences .content .container{
+  .experiences .content .container {
     height: 100%;
     justify-content: center;
     align-items: center;
   }
-.exp-head,.exp-text-content,.experiences .exp-text{
-  text-align: center;
-}
-.upper-footer{
-  padding: 0px 5rem;
-}
-.quote .container{
-  gap: 130px;
-}
+  .exp-head,
+  .exp-text-content,
+  .experiences .exp-text {
+    text-align: center;
+  }
+  .upper-footer {
+    padding: 0px 5rem;
+  }
+  .quote .container {
+    gap: 130px;
+  }
+  .partner-details {
+    display: block;
+  }
+  .content-upper,
+  .content-upper .head {
+    text-align: center;
+  }
+  .content-upper {
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+  .content-lower {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
 }
 @media screen and (max-width: 768px) {
   .flex-1 {
@@ -911,79 +976,109 @@ footer .logo img {
   .empty {
     display: none;
   }
-  .solutions::after{
+  .solutions::after {
     display: none;
   }
-  .experiences .content .container{
+  .experiences .content .container {
     display: block;
   }
-  .partner-details{
-    display: block;
-  }
-  .content-upper,.content-upper .head{
-    text-align: center;
-  }
-  .content-upper{
-    margin-bottom: 2rem;
-    padding: 0;
-  }
-  .footer form{
+
+  .footer form {
     padding: 15px;
   }
-  .contact-input,.name-input{
+  .contact-input,
+  .name-input {
     display: block;
   }
-  .footer form input{
+  .footer form input {
     margin-bottom: 1rem;
     display: block;
     width: 100%;
   }
-  .works .card .card-img{
+  .works .card .card-img {
     width: 100%;
   }
-  .solutions .container{
+  .solutions .container {
     display: block;
   }
-  .solution-text h2{
+  .solution-text h2 {
     justify-content: center;
   }
-  .solutions .section-text{
+  .solutions .section-text {
     text-align: center;
   }
-  .solutions .solution-container{
+  .solutions .solution-container {
     justify-content: center;
   }
-  .solutions .solution-text{
+  .solutions .solution-text {
     text-align: center;
   }
-  .upper-footer{
+  .upper-footer {
     padding: 0px;
     display: block;
     text-align: center;
   }
-  .social-icon{
+  .social-icon {
     display: block;
   }
-  .quote .content{
+  .quote .content {
     text-align: center;
   }
-  .quote .container{
+  .quote .container {
     display: block;
   }
-  .welcome{
+  .welcome {
     background-image: url(./assets/transparent.png);
     background-position: right;
   }
 }
-@media screen and (max-width:576px) {
+@media screen and (max-width: 576px) {
+  .banner .banner-text {
+    text-align: center;
+  }
+  .welcome {
+    background: none;
+    padding-top: 30px;
+  }
+  main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .quote {
+    padding: 30px 0px;
+    margin-top: 15px;
+  }
+  .careers-and-partners {
+    padding: 30px 0px;
+  }
+  .content-upper button {
+    margin-top: 11px;
+    margin-bottom: 0px;
+  }
+  .content-upper {
+    margin-bottom: 1rem;
+  }
+  .content-lower .card p:first-child {
+    line-height: 45px;
+  }
+  .news-letter {
+    padding: 30px 0px;
+  }
+  .footer-wrapper {
+    padding-top: 30px;
+  }
+  .works {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
   .partners img {
     width: 100%;
   }
-  .news-letter form{
+  .news-letter form {
     display: block;
     text-align: center;
   }
-  .news-letter input{
+  .news-letter input {
     width: 100%;
     margin-bottom: 1rem;
     width: 100% !important;
@@ -991,7 +1086,77 @@ footer .logo img {
   .news-letter .content {
     text-align: center;
   }
-  .news-letter .form-container{
+  .news-letter .form-container {
     display: block;
+  }
+  .content-lower {
+    display: block;
+  }
+  .content-lower .line {
+    display: none;
+  }
+  .content-lower .card {
+    text-align: center;
+  }
+  .underline {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  .welcome-img img {
+    width: 100%;
+  }
+
+  .banner-text .section-head {
+    font-size: 30px;
+  }
+  .experiences .container-fluid {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .experiences .content {
+    background: none;
+  }
+  .contact-input {
+    margin-top: 0px;
+  }
+  .experiences .content {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .wrapper {
+    gap: 0px;
+  }
+  .btn-container .banner-btn {
+    margin-bottom: 1rem;
+  }
+  .solutions .solution-container {
+    display: block;
+  }
+  .qoute-btn {
+    white-space: pre-wrap;
+  }
+  .form-container {
+    padding: 10px;
+  }
+  .news-letter .content h2 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .section-head {
+    font-size: 31px;
+    line-height: 40px;
+  }
+  .toggle-btn {
+    position: relative;
+    /* left: 0px; */
+    bottom: 31px;
+  }
+  .wrapper .logo img {
+    width: 105px;
+  }
+  .banner-text .text-head div{
+    width: 100%;
   }
 }
