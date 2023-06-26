@@ -167,7 +167,10 @@ header.logo img {
 }
 .mobile-nav {
   text-align: center;
+  position: relative;
   display: none;
+  background: var(--white);
+  top: 137.4px;
 }
 
 /* banner styling */
@@ -260,7 +263,7 @@ header.logo img {
   position: relative;
   /* background-size:, 30%; */
 }
-.welcome span{
+.welcome span {
   color: var(--white);
 }
 .welcome .container {
@@ -424,7 +427,7 @@ main .section-head::after {
   position: relative;
   left: -40px;
 }
-.works span img{
+.works span img {
   position: relative;
   z-index: -1;
 }
@@ -469,6 +472,10 @@ main .section-head::after {
   line-height: 26px;
   text-transform: capitalize;
   color: #333333;
+  margin-bottom: 22px;
+}
+.experiences .blue-btn {
+  margin-bottom: 1rem;
 }
 .quote {
   margin-top: 43px;
@@ -736,6 +743,7 @@ main .section-head::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   margin-bottom: 29px;
 }
 .footer-head::before,
@@ -902,7 +910,9 @@ footer .logo img {
   }
 }
 @media screen and (max-width: 991px) {
-  header {
+  header,
+  .works .card,
+  .partner-details {
     display: block;
   }
   header nav,
@@ -919,9 +929,6 @@ footer .logo img {
     display: inline-block;
     padding-top: 15px;
   }
-  .works .card {
-    display: block;
-  }
   .works .card .card-text {
     text-align: center;
     margin-top: 1rem;
@@ -937,7 +944,9 @@ footer .logo img {
   }
   .exp-head,
   .exp-text-content,
-  .experiences .exp-text {
+  .experiences .exp-text,
+  .content-upper,
+  .content-upper .head {
     text-align: center;
   }
   .upper-footer {
@@ -945,13 +954,6 @@ footer .logo img {
   }
   .quote .container {
     gap: 130px;
-  }
-  .partner-details {
-    display: block;
-  }
-  .content-upper,
-  .content-upper .head {
-    text-align: center;
   }
   .content-upper {
     margin-bottom: 2rem;
@@ -973,21 +975,20 @@ footer .logo img {
     gap: 0;
     flex-direction: column;
   }
+  .solutions::after,
   .empty {
     display: none;
-  }
-  .solutions::after {
-    display: none;
-  }
-  .experiences .content .container {
-    display: block;
   }
 
   .footer form {
     padding: 15px;
   }
   .contact-input,
-  .name-input {
+  .name-input,
+  .experiences .content .container,
+  .solutions .container,
+  .social-icon,
+  .quote .container {
     display: block;
   }
   .footer form input {
@@ -998,16 +999,8 @@ footer .logo img {
   .works .card .card-img {
     width: 100%;
   }
-  .solutions .container {
-    display: block;
-  }
+  .solutions .solution-container,
   .solution-text h2 {
-    justify-content: center;
-  }
-  .solutions .section-text {
-    text-align: center;
-  }
-  .solutions .solution-container {
     justify-content: center;
   }
   .solutions .solution-text {
@@ -1018,18 +1011,32 @@ footer .logo img {
     display: block;
     text-align: center;
   }
-  .social-icon {
-    display: block;
-  }
-  .quote .content {
+
+  .quote .content,
+  .solutions .section-text {
     text-align: center;
   }
-  .quote .container {
-    display: block;
-  }
   .welcome {
-    background-image: url(./assets/transparent.png);
-    background-position: right;
+    /* background-image: url(./assets/transparent.png);
+    background-position: right; */
+    background: none;
+  }
+  .welcome span {
+    color: #0091d2;
+  }
+  .experiences .exp-text {
+    background: linear-gradient(45deg, #3030308a, white);
+  }
+  .quote .content-text {
+    margin-bottom: 1rem;
+  }
+  main,
+  .careers-and-partners,
+  .news-letter {
+    padding: 30px 0px;
+  }
+  .content-upper {
+    margin-bottom: 0px;
   }
 }
 @media screen and (max-width: 576px) {
@@ -1079,24 +1086,22 @@ footer .logo img {
     text-align: center;
   }
   .news-letter input {
-    width: 100%;
     margin-bottom: 1rem;
     width: 100% !important;
   }
-  .news-letter .content {
+  .news-letter .content,
+  .content-lower .card,
+  .lower-footer {
     text-align: center;
   }
-  .news-letter .form-container {
+  .news-letter .form-container,
+  .content-lower,
+  .lower-footer {
     display: block;
   }
-  .content-lower {
-    display: block;
-  }
+
   .content-lower .line {
     display: none;
-  }
-  .content-lower .card {
-    text-align: center;
   }
   .underline {
     margin-top: 30px;
@@ -1122,6 +1127,25 @@ footer .logo img {
   .experiences .content {
     min-height: 400px;
   }
+  .footer form input {
+    margin-bottom: 0.5rem;
+  }
+  .footer textarea {
+    margin-bottom: 0.5rem;
+  }
+  .social-icon {
+    margin-top: 1rem;
+  }
+  .address-wrapper .address {
+    margin-bottom: 0px;
+  }
+  .footer-head,
+  .footer-sub-head {
+    background: #00000078;
+  }
+  .works .card:first-child {
+    margin-bottom: 0px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -1133,6 +1157,7 @@ footer .logo img {
   }
   .solutions .solution-container {
     display: block;
+    margin: 9px 0px;
   }
   .qoute-btn {
     white-space: pre-wrap;
@@ -1150,13 +1175,12 @@ footer .logo img {
   }
   .toggle-btn {
     position: relative;
-    /* left: 0px; */
     bottom: 31px;
   }
   .wrapper .logo img {
     width: 105px;
   }
-  .banner-text .text-head div{
+  .banner-text .text-head div {
     width: 100%;
   }
 }
